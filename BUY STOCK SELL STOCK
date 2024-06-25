@@ -1,0 +1,21 @@
+Input: prices = [10,1,5,6,7,1]
+
+Output: 6 
+
+Explanation : 7 - 1 (left less right more)
+
+
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+      #  prices = [10,8,7,5,2]
+        res = 0                         # intially profit can't be negitive so assaign 0
+
+        lowest = prices[0]              # fixing lowest at starting ele in array so that we can compare and tra verse
+        for i in prices:
+            if i < lowest:              # if lowest = 10 and i =7 then replace lowest 
+
+               lowest = i
+            res = max(res, i - lowest)  # By 1 for loop we are traversing 2 times 2nd time for max(i-lowest)
+        return res
